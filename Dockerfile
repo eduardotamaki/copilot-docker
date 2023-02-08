@@ -2,7 +2,7 @@ FROM ubuntu:22.04 as copilot-base
 
 RUN apt update
 
-RUN apt install curl openjdk-8-jdk git nodejs unzip python3 -y
+RUN apt install curl openjdk-8-jdk git nodejs unzip gettext-base python3 -y
 
 WORKDIR /var/apps/aws-cli
 
@@ -19,7 +19,3 @@ RUN curl -Lo copilot https://github.com/aws/copilot-cli/releases/latest/download
 FROM copilot-base
 
 WORKDIR /var/workspace
-
-COPY pipe.sh .
-
-CMD ["pipe.sh"]
